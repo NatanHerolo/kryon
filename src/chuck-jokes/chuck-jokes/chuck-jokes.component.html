@@ -1,0 +1,23 @@
+<div class="main">
+  <div class="buttons">
+    <app-buttons-type [selectedButtonType]="selectedButtonType" (buttonSelectedEvent)="onButtonSelected($event)"></app-buttons-type>
+  </div>
+  <app-page-details
+    [selectedButtonType]="selectedButtonType"
+    (randomJokeEvent)="getRandomJoke($event)"
+    (searchedJokesEvent)="getSearchedJokes($event)"
+  ></app-page-details>
+  <div class="content-area">
+    <div *ngIf="selectedButtonType === buttonType.random; else search">
+      <div class="joke" *ngIf="randomJoke">
+        <app-joke [joke]="randomJoke"></app-joke>
+      </div>
+    </div>
+    <ng-template #search>
+      <app-searched-jokes *ngIf="searchedJokes?.length; else noResults" [jokes]="searchedJokes"></app-searched-jokes>
+      <ng-template #noResults>
+        <div *ngIf="searchedJokes?.length === 0">No results, try a different key</div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import 'src/style/colors';
+@import 'src/style/functions';
+
+.main {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1366px;
+  max-height: 1024px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 220px;
+}
+
+.joke {
+  margin: 35px 0 35px 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.content-area {
+  width: 100%;
+  max-width: 1000px;
+  padding: 15px 20px;
+  box-sizing: border-box;
+}
